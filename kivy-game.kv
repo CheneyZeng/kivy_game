@@ -1,0 +1,44 @@
+# Ex33.kv
+
+<Ex33>:
+    rows: 3
+    canvas:
+        Color:
+            rgb: 0.88,0.978,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            #source: 'background.jpg'
+    BoxLayout:
+        Image:
+            source: 'num0.png'
+            on_touch_down: if self.collide_point(*args[1].pos): root.Num=4
+        Image:
+            source: 'num0.png'
+            on_touch_down: if self.collide_point(*args[1].pos): root.Num=0
+        Image:
+            source: 'num0.png'
+            on_touch_down: if self.collide_point(*args[1].pos): root.Num=1
+    BoxLayout:
+        Image:
+            source: 'num0.png'
+            on_touch_down: if self.collide_point(*args[1].pos): root.Num=2
+        Label:
+            text: 'VS'
+            font_size: 10
+        Image:
+            source: 'num0.png'
+            on_touch_down: if self.collide_point(*args[1].pos): root.Num=3
+    BoxLayout:
+        Label:
+            canvas.before:
+                Color:
+                    rgb: .9,.8,1
+                Rectangle:
+                    size: self.width-20,self.height-100
+                    pos: self.x+10,self.y+50
+            size_hint_x: 2
+            font_name: 'simhei.ttf'
+            text: root.NumSel[root.Num]
+            markup: True
+    
